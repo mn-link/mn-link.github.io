@@ -15,16 +15,25 @@ body {
   padding-top:60px;
   height:100vh;
   margin:0;
-  font-family:sans-serif;
+  font-family: "Hiragino Maru Gothic ProN", sans-serif;
 }
 
 .card {
   width:320px;
-  border-radius:16px;
+  border-radius:20px;
   overflow:hidden;
   text-decoration:none;
-  background:#111;
-  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  background:#fff;
+  box-shadow:0 6px 20px rgba(255,105,180,0.25);
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+}
+
+.thumb {
+  position: relative;
 }
 
 .card img {
@@ -32,35 +41,14 @@ body {
   display:block;
 }
 
-.card-content {
-  padding:14px;
-  background:#fff;
-  color:#000;
-  border-top:1px solid #eee;
-}
-
-.title {
-  font-size:16px;
-  font-weight:bold;
-}
-
-.desc {
-  font-size:13px;
-  opacity:0.8;
-  margin-top:6px;
-}
-.thumb {
-  position: relative;
-}
-
 .play {
-  position: absolute;
+  position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  width:80px;
-  height:80px;
-  background:rgba(0,0,0,0.4);
+  width:70px;
+  height:70px;
+  background:rgba(255,105,180,0.6);
   border-radius:50%;
   display:flex;
   align-items:center;
@@ -68,50 +56,45 @@ body {
 }
 
 .triangle {
-  width: 0;
-  height: 0;
-  border-top:12px solid transparent;
-  border-bottom:12px solid transparent;
-  border-left:20px solid white;
+  width:0;
+  height:0;
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+  border-left:16px solid white;
 }
 
-.label {
-  position:absolute;
-  left:10px;
-  bottom:10px;
-  background:rgba(0,0,0,0.6);
-  color:white;
-  padding:6px 10px;
-  border-radius:8px;
-  font-size:12px;
+.card-content {
+  padding:16px;
+  background:#fff;
+  color:#ff4fa3;
+  text-align:center;
+}
+
+.title {
+  font-size:15px;
+  font-weight:bold;
 }
 </style>
-<meta property="og:title" content="">
-<meta property="og:description" content="ここに説明文">
-<meta property="og:image" content="ここに画像URL">
-<meta property="og:url" content="https://mn-link.github.io/">
-<meta property="og:type" content="website">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="">
-<meta name="twitter:description" content="ここに説明文">
-<meta name="twitter:image" content="ここに画像URL">
 </head>
 
 <body>
 
-<a class="card" href=https://matching-affi.jp/r/aflu2i2o
+<a class="card" href="https://matching-affi.jp/r/aflu2i2o" target="_blank">
+
 <div class="thumb">
 <img src="https://i.imgur.com/a3fDLnP.jpg">
 
-  <div class="play">
-    <div class="triangle"></div>
-  </div>
+<div class="play">
+<div class="triangle"></div>
+</div>
 
 </div>
-  <div class="card-content">
-    <div class="title">知らない人多いけど無料だお( ･᷄ὢ･᷅ )</div>
-  </div>
+
+<div class="card-content">
+<div class="title">知らない人多いけど無料だお</div>
+</div>
+
 </a>
 
 </body>
