@@ -1,108 +1,278 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>メッセージを確認</title>
 
-<title>続きはこちら</title>
+  <!-- OGP（カード表示用：画像URL入れ替えてOK） -->
+  <meta property="og:title" content="メッセージが届いています" />
+  <meta property="og:description" content="夜だけ使ってる人多いらしい…" />
+  <meta property="og:image" content="ここにOGP画像URL（httpsの画像）" />
+  <meta property="og:type" content="website" />
 
-<!-- Twitterカード用（画像リンク入れ替えてOK） -->
-<meta property="og:title" content="これ普通にやばかった…" />
-<meta property="og:description" content="途中までしか見せれんけど👇" />
-<meta property="og:image" content="ここに画像URL入れる" />
-<meta property="og:type" content="website" />
+  <style>
+    :root{
+      --pink:#ff4fa3;
+      --bg:#f6f7fb;
+      --text:#111;
+      --muted:#666;
+      --card:#fff;
+      --line:#e9e9ef;
+      --shadow:0 10px 28px rgba(0,0,0,.08);
+      --radius:22px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -10%, rgba(255,79,163,.20), transparent 55%),
+                  radial-gradient(900px 500px at 20% 0%, rgba(255,79,163,.12), transparent 50%),
+                  var(--bg);
+      color:var(--text);
+      display:flex;
+      justify-content:center;
+      padding:22px 12px 40px;
+    }
+    .wrap{ width:min(390px, 100%); }
 
-<style>
+    .topbar{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 6px 14px;
+      color:#222;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:var(--pink);
+      box-shadow:0 0 0 6px rgba(255,79,163,.15);
+    }
 
-body{
-background:#fff;
-font-family:sans-serif;
-display:flex;
-justify-content:center;
-padding:40px 10px;
-}
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.03);
+    }
 
-.card{
-max-width:350px;
-background:#fff;
-border-radius:20px;
-box-shadow:0 6px 20px rgba(0,0,0,0.1);
-overflow:hidden;
-text-align:center;
-}
+    .hero{
+      padding:16px 16px 12px;
+    }
+    .headline{
+      font-size:18px;
+      font-weight:900;
+      color:var(--pink);
+      margin:0 0 6px;
+      text-align:center;
+    }
+    .sub{
+      margin:0;
+      font-size:13px;
+      color:var(--muted);
+      text-align:center;
+    }
 
-.title{
-font-size:18px;
-color:#ff4fa3;
-padding:15px;
-font-weight:bold;
-}
+    .profile{
+      display:flex;
+      gap:12px;
+      padding:14px 16px;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      align-items:center;
+    }
+    .avatar{
+      width:56px;height:56px;border-radius:16px;
+      overflow:hidden;
+      background:#ddd;
+      flex:0 0 auto;
+      position:relative;
+    }
+    .avatar img{
+      width:100%;height:100%;object-fit:cover;display:block;
+      filter:saturate(1.05);
+    }
+    .badge{
+      position:absolute;
+      bottom:6px;left:6px;
+      background:rgba(17,17,17,.72);
+      color:#fff;
+      font-size:11px;
+      padding:3px 7px;
+      border-radius:999px;
+      backdrop-filter: blur(6px);
+    }
+    .pmeta{ flex:1; min-width:0; }
+    .pname{
+      font-weight:900;
+      margin:0 0 2px;
+      font-size:15px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .age{
+      font-weight:800;
+      color:#444;
+      font-size:13px;
+      padding:2px 8px;
+      border-radius:999px;
+      background:#f3f4f8;
+    }
+    .pline{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
 
-.image-wrap{
-position:relative;
-}
+    .chat{
+      padding:14px 16px 18px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      background:linear-gradient(#fff, #fff), var(--bg);
+    }
+    .sys{
+      align-self:center;
+      font-size:11px;
+      color:#777;
+      background:#f3f4f8;
+      padding:6px 10px;
+      border-radius:999px;
+    }
+    .bubble{
+      max-width:86%;
+      padding:10px 12px;
+      border-radius:16px;
+      font-size:14px;
+      line-height:1.35;
+      box-shadow:0 6px 16px rgba(0,0,0,.05);
+      position:relative;
+      word-break:break-word;
+    }
+    .left{
+      background:#f1f2f6;
+      color:#111;
+      border-top-left-radius:8px;
+      align-self:flex-start;
+    }
+    .right{
+      background:rgba(255,79,163,.14);
+      color:#111;
+      border-top-right-radius:8px;
+      align-self:flex-end;
+    }
+    .blur{
+      filter: blur(6px);
+      user-select:none;
+    }
+    .hint{
+      font-size:12px;
+      color:#666;
+      margin-top:6px;
+      text-align:center;
+    }
 
-.image-wrap img{
-width:100%;
-display:block;
-}
+    .ctaArea{
+      padding:14px 16px 18px;
+      border-top:1px solid var(--line);
+      background:#fff;
+    }
+    .ctaTitle{
+      margin:0 0 10px;
+      font-weight:900;
+      text-align:center;
+      font-size:13px;
+      color:#333;
+    }
+    .btn{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      width:100%;
+      text-decoration:none;
+      padding:14px 14px;
+      border-radius:999px;
+      font-weight:900;
+      color:#fff;
+      background:linear-gradient(135deg, var(--pink), #ff2f88);
+      box-shadow:0 12px 26px rgba(255,79,163,.35);
+      border:0;
+    }
+    .btn small{
+      font-weight:800;
+      opacity:.92;
+      font-size:12px;
+    }
+    .note{
+      margin:10px 0 0;
+      text-align:center;
+      font-size:11px;
+      color:#888;
+    }
 
-.play{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:#ff4fa3;
-color:#fff;
-border-radius:50%;
-width:70px;
-height:70px;
-line-height:70px;
-font-size:28px;
-}
-
-.text{
-padding:15px;
-font-size:14px;
-color:#333;
-}
-
-.btn{
-margin:20px auto;
-display:inline-block;
-background:#f1f1f1;
-padding:12px 20px;
-border-radius:30px;
-text-decoration:none;
-color:#333;
-font-weight:bold;
-}
-
-</style>
+    .footerSpace{ height:18px; }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<div class="card">
+    <div class="topbar">
+      <span class="dot"></span>
+      <span>通知</span>
+    </div>
 
-<div class="title">
-これ普通にやばかった…
-</div>
+    <div class="card">
+      <div class="hero">
+        <p class="headline">これ普通にやばかった…</p>
+        <p class="sub">※スクショっぽく見せてるだけ（押したくなるやつ）</p>
+      </div>
 
-<div class="image-wrap">
-<img src="ここに画像URL入れる">
-<div class="play">▶</div>
-</div>
+      <!-- プロフィール（ここが“リアル感”の要） -->
+      <div class="profile">
+        <div class="avatar">
+          <!-- ここに“顔アップ”画像URL（https） -->
+          <img src="ここに顔アップ画像URL（https）" alt="profile">
+          <span class="badge">オンライン</span>
+        </div>
+        <div class="pmeta">
+          <p class="pname">みなみ <span class="age">22</span></p>
+          <p class="pline">今日ヒマな人いる？（夜だけ）</p>
+        </div>
+      </div>
 
-<div class="text">
-途中までしか見せれんけど👇
-</div>
+      <!-- チャット風 -->
+      <div class="chat">
+        <div class="sys">マッチしました</div>
+        <div class="bubble left">今どこいる？</div>
+        <div class="bubble right">近い！ちょっとだけ話そ</div>
 
-<a class="btn" href="ここにアフィリンク入れる">
-⬆️ こっそり続き見る
-</a>
+        <!-- “続き見たい”を作るためのぼかし -->
+        <div class="bubble left blur">（この続き、普通にアウト…）</div>
+        <div class="bubble right blur">（ここから先は…）</div>
 
-</div>
+        <div class="hint">試したら普通にヤバかった👇</div>
+      </div>
 
+      <!-- CTA -->
+      <div class="ctaArea">
+        <p class="ctaTitle">こっそり確認する</p>
+        <a class="btn" href="ここに最終リンク（アフィリンク）" rel="noopener">
+          ⬆️ こっそり無料で見る <small>（今だけ）</small>
+        </a>
+        <p class="note">※外部ページへ移動します</p>
+      </div>
+    </div>
+
+    <div class="footerSpace"></div>
+  </div>
 </body>
 </html>
