@@ -4,108 +4,105 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Link Card</title>
+<title>続きはこちら</title>
+
+<!-- Twitterカード用（画像リンク入れ替えてOK） -->
+<meta property="og:title" content="これ普通にやばかった…" />
+<meta property="og:description" content="途中までしか見せれんけど👇" />
+<meta property="og:image" content="ここに画像URL入れる" />
+<meta property="og:type" content="website" />
 
 <style>
-body {
+
+body{
 background:#fff;
+font-family:sans-serif;
 display:flex;
 justify-content:center;
-align-items:flex-start;
-padding-top:60px;
-margin:0;
-font-family:"Hiragino Maru Gothic ProN", sans-serif;
+padding:40px 10px;
 }
 
-.card {
-width:320px;
-border-radius:20px;
-overflow:hidden;
-text-decoration:none;
+.card{
+max-width:350px;
 background:#fff;
-box-shadow:0 6px 20px rgba(255,105,180,0.25);
+border-radius:20px;
+box-shadow:0 6px 20px rgba(0,0,0,0.1);
+overflow:hidden;
+text-align:center;
 }
 
-.thumb {
+.title{
+font-size:18px;
+color:#ff4fa3;
+padding:15px;
+font-weight:bold;
+}
+
+.image-wrap{
 position:relative;
 }
 
-.card img {
+.image-wrap img{
 width:100%;
 display:block;
 }
 
-.play {
+.play{
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
+background:#ff4fa3;
+color:#fff;
+border-radius:50%;
 width:70px;
 height:70px;
-background:rgba(255,105,180,0.6);
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
+line-height:70px;
+font-size:28px;
 }
 
-.triangle {
-width:0;
-height:0;
-border-top:10px solid transparent;
-border-bottom:10px solid transparent;
-border-left:16px solid white;
-}
-
-.card-content {
-padding:16px;
-text-align:center;
-}
-
-.title {
-font-size:15px;
-font-weight:bold;
-color:#ff4fa3;
-}
-
-.cta{
-margin-top:12px;
-background:#f3f3f3;
-padding:12px;
-border-radius:30px;
+.text{
+padding:15px;
 font-size:14px;
-font-weight:bold;
 color:#333;
-display:inline-block;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
-</style>
 
+.btn{
+margin:20px auto;
+display:inline-block;
+background:#f1f1f1;
+padding:12px 20px;
+border-radius:30px;
+text-decoration:none;
+color:#333;
+font-weight:bold;
+}
+
+</style>
 </head>
 
 <body>
 
-<a class="card" href="https://matching-affi.jp/r/aflu2i2o" target="_blank">
+<div class="card">
 
-<div class="thumb">
-<img src="https://i.imgur.com/a3fDLnP.jpg">
-
-<div class="play">
-<div class="triangle"></div>
+<div class="title">
+これ普通にやばかった…
 </div>
 
+<div class="image-wrap">
+<img src="ここに画像URL入れる">
+<div class="play">▶</div>
 </div>
 
-<div class="card-content">
-<div class="title">これ普通にやばかった…。</div>
-
-<div class="cta">
-⬆️ 続きは🈁
+<div class="text">
+途中までしか見せれんけど👇
 </div>
 
-</div>
-
+<a class="btn" href="ここにアフィリンク入れる">
+⬆️ こっそり続き見る
 </a>
+
+</div>
 
 </body>
 </html>
