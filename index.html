@@ -1,119 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>secret</title>
 
-    .bubble{
-      max-width:86%;
-      padding:10px 12px;
-      border-radius:16px;
-      font-size:14px;
-      line-height:1.35;
-      box-shadow:0 6px 16px rgba(0,0,0,.05);
-      position:relative;
-      word-break:break-word;
-    }
-    .
-      filter: blur(6px);
-      user-select:none;
-    }
-    .hint{
-      font-size:12px;
-      color:#666;
-      margin-top:6px;
-      text-align:center;
-    }
+<!-- ✅ X(Twitter)カード表示用（OGP/Twitter Card） -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="🔥今だけ無料｜こっそり見れる😈">
+<meta property="og:description" content="目的別に分けた。タップしたらすぐ見れる。">
+<meta property="og:url" content="https://wz177018.github.io/">
+<meta property="og:image" content="https://wz177018.github.io/ogp.jpg">
 
-    .ctaArea{
-      padding:14px 16px 18px;
-      border-top:1px solid var(--line);
-      background:#fff;
-    }
-    .ctaTitle{
-      margin:0 0 10px;
-      font-weight:900;
-      text-align:center;
-      font-size:13px;
-      color:#333;
-    }
-    .btn{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:10px;
-      width:100%;
-      text-decoration:none;
-      padding:14px 14px;
-      border-radius:999px;
-      font-weight:900;
-      color:#fff;
-      background:linear-gradient(135deg, var(--pink), #ff2f88);
-      box-shadow:0 12px 26px rgba(255,79,163,.35);
-      border:0;
-    }
-    .btn small{
-      font-weight:800;
-      opacity:.92;
-      font-size:12px;
-    }
-    .note{
-      margin:10px 0 0;
-      text-align:center;
-      font-size:11px;
-      color:#888;
-    }
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🔥今だけ無料｜こっそり見れる😈">
+<meta name="twitter:description" content="目的別に分けた。タップしたらすぐ見れる。">
+<meta name="twitter:image" content="https://wz177018.github.io/ogp.jpg">
 
-    .footerSpace{ height:18px; }
-  </style>
+<style>
+body{
+  margin:0;
+  background:linear-gradient(180deg,#ffd6ec,#ffc2e3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:sans-serif;
+}
+.card{
+  background:#fff;
+  width:340px;
+  border-radius:22px;
+  padding:22px;
+  text-align:center;
+  box-shadow:0 15px 35px rgba(0,0,0,0.18);
+}
+.badge{
+  background:#ff2e8a;
+  color:#fff;
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+.title{
+  font-size:22px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+.desc{
+  font-size:13px;
+  color:#666;
+  margin-bottom:15px;
+}
+.img{
+  height:160px;
+  border-radius:14px;
+  background:#ffe2f2;
+  margin-bottom:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#999;
+  font-size:12px;
+}
+.btn{
+  display:block;
+  background:#ff2e8a;
+  color:#fff;
+  text-decoration:none;
+  padding:16px;
+  border-radius:14px;
+  margin:12px 0;
+  font-weight:bold;
+  font-size:16px;
+  box-shadow:0 8px 18px rgba(255,46,138,0.35);
+}
+.btn:active{ transform:scale(0.97); }
+.note{
+  font-size:11px;
+  color:#999;
+  margin-top:10px;
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
+<div class="card">
+  <div class="badge">🔥 今だけ無料</div>
+  <div class="title">今だけ見れるやつ😈</div>
+  <div class="desc">見たい人多いから<br>目的別に分けた👇</div>
 
-    <div class="topbar">
-      <span class="dot"></span>
-      <span>通知</span>
-    </div>
+  <div class="img">ここにモザイク画像入れる</div>
 
-    <div class="card">
-      <div class="hero">
-        <p class="headline">これ普通にやばかった…</p>
-        <p class="sub">※スクショっぽく見せてるだけ（押したくなるやつ）</p>
-      </div>
+  <a class="btn" href="https://lite.tiktok.com/t/ZS9dRrjqtTSkR-8vvVR/">はめたい人はこちら</a>
+  <a class="btn" href="https://lite.tiktok.com/t/ZS9dRrjqtTSkR-8vvVR/">抜きたい人はこちら</a>
 
-      <!-- プロフィール（ここが“リアル感”の要） -->
-      <div class="profile">
-        <div class="avatar">
-          <!-- ここに“顔アップ”画像URL（https） -->
-          <img src="ここに顔アップ画像URL（https）" alt="profile">
-          <span class="badge">オンライン</span>
-        </div>
-        <div class="pmeta">
-          <p class="pname">みなみ <span class="age">22</span></p>
-          <p class="pline">今日ヒマな人いる？（夜だけ）</p>
-        </div>
-      </div>
-
-      <!-- チャット風 -->
-      <div class="chat">
-        <div class="sys">マッチしました</div>
-        <div class="bubble left">今どこいる？</div>
-        <div class="bubble right">近い！ちょっとだけ話そ</div>
-
-        <!-- “続き見たい”を作るためのぼかし -->
-        <div class="bubble left blur">（この続き、普通にアウト…）</div>
-        <div class="bubble right blur">（ここから先は…）</div>
-
-        <div class="hint">試したら普通にヤバかった👇</div>
-      </div>
-
-      <!-- CTA -->
-      <div class="ctaArea">
-        <p class="ctaTitle">こっそり確認する</p>
-        <a class="btn" href="ここに最終リンク（アフィリンク）" rel="noopener">
-          ⬆️ こっそり無料で見る <small>（今だけ）</small>
-        </a>
-        <p class="note">※外部ページへ移動します</p>
-      </div>
-    </div>
-
-    <div class="footerSpace"></div>
-  </div>
+  <div class="note">※タップしたらすぐ見れる</div>
+</div>
 </body>
 </html>
